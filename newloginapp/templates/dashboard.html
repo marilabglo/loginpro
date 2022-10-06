@@ -1,0 +1,12 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+Hello, {{ login_app.username|default:'Guest' }}!
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+<form>
+{% endblock %}
+

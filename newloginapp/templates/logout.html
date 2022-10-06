@@ -1,0 +1,26 @@
+<style>
+    a{
+color:#ff12a1
+    }
+   div {
+        margin: 100px 50px 50px 70px;
+    }
+
+</style>
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+Hello, {{ login_app.username|default:'Guest' }}!
+
+<div>
+    {% if login_app.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a><br><br>
+        <a href="{% url 'password_change' %}">Change password</a><br><br>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+       
+    {% endif %}
+</div>
+{% endblock %}
